@@ -1,0 +1,367 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Assets/Propeller2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Propeller3.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Propeller4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Propeller1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Platform-export.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Chain-export.png" type="Texture" id=7]
+[ext_resource path="res://Assets/PLAYER/Player-attack6.png" type="Texture" id=8]
+[ext_resource path="res://Assets/PLAYER/Player6.png" type="Texture" id=9]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/EnemySpawn.gd" type="Script" id=11]
+[ext_resource path="res://Assets/BeepBox-Song.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/PLAYER/Player1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/PLAYER/Player3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/PLAYER/Player2.png" type="Texture" id=15]
+[ext_resource path="res://Assets/PLAYER/Player5.png" type="Texture" id=16]
+[ext_resource path="res://Assets/PLAYER/Player4.png" type="Texture" id=17]
+[ext_resource path="res://Assets/PLAYER/Player-attack3.png" type="Texture" id=18]
+[ext_resource path="res://Assets/PLAYER/Player-attack1.png" type="Texture" id=19]
+[ext_resource path="res://Assets/PLAYER/Player-attack2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/PLAYER/Player-attack5.png" type="Texture" id=21]
+[ext_resource path="res://Assets/PLAYER/Player-attack4.png" type="Texture" id=22]
+[ext_resource path="res://Assets/background-two.png" type="Texture" id=23]
+[ext_resource path="res://Scripts/Background.gd" type="Script" id=24]
+[ext_resource path="res://Assets/Background-One.png" type="Texture" id=25]
+[ext_resource path="res://Assets/VT323-Regular.ttf" type="DynamicFontData" id=26]
+[ext_resource path="res://Assets/dead.png" type="Texture" id=27]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+font_data = ExtResource( 26 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 300.05, 18.1032 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 60.3529, 39.8186 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+outline_color = Color( 0.309804, 0.345098, 0.623529, 1 )
+font_data = ExtResource( 26 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background-One" type="Sprite" parent="."]
+position = Vector2( 0, 600 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 25 )
+centered = false
+script = ExtResource( 24 )
+
+[node name="Background-Two" type="Sprite" parent="."]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 23 )
+centered = false
+script = ExtResource( 24 )
+
+[node name="Intro-0" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 30.0
+margin_right = 920.0
+margin_bottom = 283.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "Welcome to Cloudy Package, Inc.!
+
+
+
+
+~ Press X to continue (1/5) ~"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intro-1" type="Label" parent="."]
+visible = false
+margin_left = 104.0
+margin_top = 30.0
+margin_right = 920.0
+margin_bottom = 251.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "We're excited to have you as one of our remote pilots. We want you to have fun as you climb into the clouds, as well as make us a ton of money. Today you'll be operating one of our latest prototypes in mail delivery innovation to transport that large package below you.
+
+
+~ Press X to continue (2/5) ~"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intro-2" type="Label" parent="."]
+visible = false
+margin_left = 104.0
+margin_top = 30.0
+margin_right = 920.0
+margin_bottom = 251.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "You should know that the courier before you actually exploded. Don't worry, that was a remote pilot as well. I think. Wasn't he? Oh.. Anyway, those packages are still out there somewhere, and if you can take them a little further up, we'll pay you extra! Don't worry if you lose them, we'll have someone coming in right behind you, just take them as far as you can. You'll see quite a few different types...
+
+~ Press X to continue (3/5) ~"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intro-3" type="Label" parent="."]
+visible = false
+margin_left = 104.0
+margin_top = 30.0
+margin_right = 920.0
+margin_bottom = 283.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = " We want the BROWN and GOLD ones, but not the BLUE packages. You have to get rid of those somehow, or we'll actually charge you. Also, take note of the RED and GREEN packages. One is dangerous and the other is helpful, but I can't remember which. I'm sure you'll do fine, as long as your BATTERY lasts longer than the other prototypes.  Wait, it is? That fast?
+
+
+~ Press X to continue (4/5) ~
+
+"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intro-4" type="Label" parent="."]
+visible = false
+margin_left = 104.0
+margin_top = 30.0
+margin_right = 920.0
+margin_bottom = 315.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "Well they're saying the BATTERY will drain quickly, but you might be able to find some charge somewhere. Oh! We added the ability to use X to go a lot faster and Z to gain a little more control. Also keep in mind that most packages will freeze when they stop moving and never move again. Why? We don't know, and we don't care. Wow, looks like some packages are getting close. Are you ready?
+
+~ Press X to begin (5/5) ~
+
+"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intro-5" type="Label" parent="."]
+visible = false
+margin_left = 104.0
+margin_top = 30.0
+margin_right = 920.0
+margin_bottom = 315.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "GAME OVER
+
+~ Press ENTER to try again ~
+"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lift" type="StaticBody2D" parent="."]
+position = Vector2( 512, 300 )
+
+[node name="LeftChain" type="Sprite" parent="Lift"]
+position = Vector2( -285, 121.494 )
+texture = ExtResource( 7 )
+
+[node name="RightChain" type="Sprite" parent="Lift"]
+position = Vector2( 285, 121.494 )
+texture = ExtResource( 7 )
+
+[node name="LeftPropeller" type="AnimatedSprite" parent="Lift"]
+position = Vector2( -285, 0.473 )
+frames = SubResource( 2 )
+speed_scale = 4.0
+playing = true
+
+[node name="RightPropeller" type="AnimatedSprite" parent="Lift"]
+position = Vector2( 285, 0 )
+frames = SubResource( 3 )
+frame = 2
+speed_scale = 4.0
+playing = true
+
+[node name="Platform" type="Sprite" parent="Lift"]
+position = Vector2( 0, 250 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lift"]
+position = Vector2( 0, 250.098 )
+shape = SubResource( 4 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 512, 481.366 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+scale = Vector2( 5, 5 )
+frames = SubResource( 5 )
+animation = "dead"
+speed_scale = 4.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 0.31543, 15.3622 )
+shape = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="Player"]
+
+[node name="BatteryTimer" type="Timer" parent="Player"]
+
+[node name="EnemySpawn" type="Node2D" parent="."]
+position = Vector2( 512, -50 )
+script = ExtResource( 11 )
+
+[node name="Timer" type="Timer" parent="EnemySpawn"]
+
+[node name="Scoring" type="Node2D" parent="."]
+position = Vector2( 871.439, 453.148 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Score" type="Label" parent="Scoring"]
+margin_left = 16.099
+margin_top = -30.0
+margin_right = 122.099
+margin_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "$0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Battery" type="Label" parent="Scoring"]
+margin_left = 16.0994
+margin_top = 18.0391
+margin_right = 122.099
+margin_bottom = 69.0391
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "$0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GoodCount" type="Label" parent="Scoring"]
+margin_left = 16.099
+margin_top = 50.0
+margin_right = 122.099
+margin_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "42 GOOD"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BadCount" type="Label" parent="Scoring"]
+margin_left = 16.099
+margin_top = 82.0
+margin_right = 122.099
+margin_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+text = "13 BAD"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
+max_distance = 1000.0
+[connection signal="timeout" from="Player/Timer" to="Player" method="timeout"]
+[connection signal="timeout" from="Player/BatteryTimer" to="Player" method="_on_BatteryTimer_timeout"]
+[connection signal="timeout" from="EnemySpawn/Timer" to="EnemySpawn" method="timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="timeout"]
