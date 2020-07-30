@@ -1,4 +1,4 @@
-# Cloudy Package Inc.
+# Cloudy Package Inc. / [Try the Game](https://thebuffed.itch.io/cloudy-package-inc)
 
 A fun simple game I made in 72 hours for the [Score Space Jam](https://itch.io/jam/scorejam9) using Godot Engine and decided to make open source. Hopefully the game will be fun to play but also serve as a resource for anyone that wants to learn more about game development.
 
